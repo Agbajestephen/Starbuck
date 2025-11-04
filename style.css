@@ -118,11 +118,82 @@ header nav {
   margin-bottom: 30px;
   width: 70%;
 }
-.carousel .list .item .main-content{
+.carousel .list .item .main-content {
   height: 100%;
   display: grid;
-  grid-template-columns: calc(100% - calc(var(--w-image)* var(--calculate)));
+  grid-template-columns: calc(100% - calc(var(--w-image) * var(--calculate)));
 }
-.carousel .list .item .main-content .content{
-  padding: 20px 20px 20px 80px;
+.carousel .list .item .main-content .content {
+  padding: 150px 20px 20px 80px;
+}
+.carousel .list .item .main-content .content h2 {
+  font-size: 5em;
+  font-family: "Aboreto";
+}
+.carousel .list .item .main-content .content .price {
+  font-family: "Aboreto";
+  font-size: 3em;
+  margin: 20px 0;
+}
+.carousel .list .item .main-content .content .addToCard {
+  background-color: #4f8b69;
+  color: #fff;
+  padding: 10px 30px;
+  font-family: Poppins;
+  font-size: large;
+  font-weight: 500;
+  border-radius: 30px;
+  border: none;
+  margin-top: 20px;
+}
+.arrows {
+  position: absolute;
+  bottom: 20px;
+  width: calc(100% - calc(var(--w-image) * var(--calculate)));
+  display: grid;
+  grid-template-columns: repeat(2, 50px);
+  grid-template-rows: 50px;
+  justify-content: end;
+  gap: 10px;
+}
+.arrows button {
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  color: #fff;
+  font-family: monospace;
+  font-size: large;
+  font-weight: bold;
+  line-height: 0;
+  box-shadow: 0 10px 40px #5555;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.arrows button:hover {
+  background-color: #eee5;
+}
+.carousel .list .item {
+  display: none;
+}
+.carousel .list .item.active,
+.carousel .list .item.other_1,
+.carousel .list .item.other_2 {
+  display: block;
+}
+.carousel .list .item.active {
+  z-index: 2;
+}
+.carousel .list .item.other_1,
+.carousel .list .item.other_2 {
+  pointer-events: none;
+}
+.carousel .list .item.active .main-content {
+  animation: showContent 1s ease-in-out 1 forwards;
+}
+@keyframes showContent {
+  from {
+    clip-path: circle(0% at 70% 50%);
+  }
+  to {
+    clip-path: circle(100% at 70% 50%);
+  }
 }
